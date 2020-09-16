@@ -1,3 +1,3 @@
 export interface MapData {
-	[key: string]: string
+	[key: string]: string;
 }
