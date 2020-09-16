@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <navbar />
-    <router-view />
+    <b-container fluid>
+      <!-- Content here -->
+      <router-view />
+    </b-container>
   </div>
 </template>
 
@@ -20,5 +23,16 @@ export default Vue.extend({
 
 
 <style lang="scss">
-// Global Styles Here
+// Your variable overrides
+$primary: #1d2675;
+$secondary: #8cd2f4;
+$cool-gray: #717173;
+$light-gray: #919095;
+
+$body-bg: $secondary;
+
+// Bootstrap and its default variables
+@import "../node_modules/bootstrap/scss/bootstrap";
+// BootstrapVue and its default variables
+@import "../node_modules/bootstrap-vue/src/index.scss";
 </style>
