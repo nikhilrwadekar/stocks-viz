@@ -4,9 +4,6 @@ import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
 import APIService from "../api"
 
-
-// Helpers
-// import debounce from "lodash/debounce";
 // Modules
 // import auth from './auth';
 
@@ -20,9 +17,12 @@ const vuexLocal = new VuexPersistence({
 // Initial Store
 const initial = {
   // Auth
-  username: 'user',
+  username: 'mcapuser',
   password: 'password',
-  authenticated: true,
+  authenticated: false,
+
+  // Localization
+  language: 'EN',
 
   // Results 
   history: {},
@@ -61,6 +61,13 @@ export default new Vuex.Store({
     },
     SET_CURRENT_SEARCH(state, keywords) {
       state.currentSearch = keywords
+    },
+
+    SET_CURRENT_LANGUAGE(state, language) {
+      state.language = language;
+    },
+    SET_AUTH(state) {
+      state.authenticated = true;
     }
   },
   actions: {
@@ -97,8 +104,25 @@ export default new Vuex.Store({
         })
       }
     },
-    LOGOUT(context) {
+    LOGIN(context, credentials) {
+      const username = context.state.username;
+      const password = context.state.password;
+
+
+      return new Promise((resolve, reject) => {
+        if (username === credentials.username && password === credentials.password) {
+          context.commit('SET_AUTH')
+          resolve('Welcome!')
+        }
+
+        reject('Sorry, invalid credentials!')
+      })
+
+
+    },
+    async LOGOUT(context) {
       context.commit('RESET_STORE', initial)
+      await window.localStorage.removeItem('vuex');
     }
   },
   getters: {
@@ -108,7 +132,7 @@ export default new Vuex.Store({
     symbol: (state) => {
       return state.symbol
     },
-    search: (state, getters) => {
+    search: (state) => {
       return state.search
     },
     currentSearch: (state) => {
@@ -117,6 +141,11 @@ export default new Vuex.Store({
     currentSearchResults: (state, getters) => {
       const { currentSearch, search } = getters;
       return search[currentSearch];
+    },
+
+    // Localization
+    currentLanguage(state) {
+      return state.language;
     },
 
     // Auth

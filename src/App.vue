@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <navbar />
-    <b-container fluid>
+    <b-container>
       <!-- Content here -->
       <router-view />
     </b-container>
@@ -29,7 +29,7 @@ $secondary: #8cd2f4;
 $cool-gray: #717173;
 $light-gray: #919095;
 
-$body-bg: $secondary;
+// $body-bg: lighten($secondary, 20%);
 
 // Bootstrap and its default variables
 @import "../node_modules/bootstrap/scss/bootstrap";
