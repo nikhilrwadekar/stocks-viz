@@ -1,17 +1,17 @@
 <template>
   <div class="home">
-    <jumbotron />
+    <Hero />
   </div>
 </template>
 
 <script lang="ts">
 // @ is an alias to /src
-import Jumbotron from "@/components/Jumbotron.vue";
+import Hero from "@/components/home/Hero.vue";
 
 export default {
   name: "Home",
   components: {
-    Jumbotron,
+    Hero,
   },
 };
 </script>

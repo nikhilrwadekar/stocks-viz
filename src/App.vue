@@ -7,15 +7,17 @@
 
 <script lang="ts">
 // @ is an alias to /src
-import Navbar from "@/components/Navbar.vue";
+import Vue from "vue";
+import Navbar from "@/components/shared/Navbar.vue";
 
-export default {
+export default Vue.extend({
   name: "Home",
   components: {
     Navbar,
   },
-};
+});
 </script>
+
 
 <style lang="scss">
 // Global Styles Here
