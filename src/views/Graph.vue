@@ -38,9 +38,15 @@ export default Vue.extend({
   name: "Graph",
   created() {
     const symbol = this.symbol;
-    this.GET_STOCK_HISTORY(symbol).catch((err) => {
-      this.$router.push({ name: "search" });
-    });
+    this.loading = true;
+    this.GET_STOCK_HISTORY(symbol)
+      .then(() => {
+        this.loading = false;
+      })
+      .catch((err) => {
+        this.loading = false;
+        this.$router.push(`/${this.$i18n.locale}/search`);
+      });
   },
   components: {
     Preferences,
@@ -48,6 +54,7 @@ export default Vue.extend({
   data() {
     return {
       // {'2017-01-01': 11, '2017-01-02': 6}
+      loading: false,
       preference: "open",
     };
   },

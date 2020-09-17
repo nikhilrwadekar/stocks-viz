@@ -33,21 +33,37 @@ const results: Module<any, any> =  {
 		actions: {
 			// Search & Fetch
 			GET_STOCK_HISTORY(context, symbol: string) {
-
 				// Todo DATE check!
 				// Todo Closing check!
 				const exists = context.getters.history[symbol]
+
+				return new Promise((resolve, reject) => {
+					if (!exists && symbol) {
+						APIService.get('', { params: { function: 'TIME_SERIES_DAILY', symbol } }).then((res: AxiosResponse) => {
+							const { data } = res;
+	
+							if(data['Meta Data'] && data['Time Series (Daily)']) {
+								// Continue with updation
+								const metadata = data['Meta Data'];
+								const timeseries = data['Time Series (Daily)'];
+							
+								context.commit('SET_STOCK_HISTORY', { metadata, timeseries });
+								resolve();
+								
+							} else {
+								// Throw an error - preferrably redirect to 404
+								reject();
+							}
+							
+						})
+					}	
+				
+				})
+
+				
 	
 	
-				if (!exists && symbol) {
-					APIService.get('', { params: { function: 'TIME_SERIES_DAILY', symbol } }).then((res: AxiosResponse) => {
-						const { data } = res;
-						const metadata = data['Meta Data'];
-						const timeseries = data['Time Series (Daily)'];
-	
-						context.commit('SET_STOCK_HISTORY', { metadata, timeseries })
-					})
-				}
+			
 			},
 			GET_SEARCH_SUGGESTIONS(context, keywords: string) {
 	
