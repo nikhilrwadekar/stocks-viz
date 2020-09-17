@@ -1,13 +1,13 @@
 <template>
   <div v-if="!authenticated">
     <b-jumbotron bg-variant="transparent">
-      <template v-slot:header>Hello! 👋</template>
+      <template v-slot:header>{{$t('greeting')}}! 👋</template>
 
-      <template v-slot:lead>Please login to start viewing stock price history.</template>
+      <template v-slot:lead>{{$t('home.loginRequest')}}</template>
 
       <hr class="my-4" />
 
-      <b-button block variant="primary" href="/login">Login</b-button>
+      <b-button block variant="primary" :href="`/${$i18n.locale}/login`">{{$t('login.login')}}</b-button>
     </b-jumbotron>
   </div>
 
@@ -15,21 +15,23 @@
     <b-row align-v="center" class="justify-content-md-center">
       <b-col col md="6" cols="12">
         <b-jumbotron bg-variant="transparent">
-          <template v-slot:header>Hello, {{username}}! 👋</template>
+          <template v-slot:header>{{$t('greeting')}}, {{username}}! 👋</template>
 
           <template v-slot:lead v-if="userHasHistory">
-            <div>Jump right back in!</div>
-            <!-- <b-btn href="#recently-viewed">Recently Viewed</b-btn> -->
+            <div>{{$t('home.jumpBackIn')}}!</div>
           </template>
-          <template v-slot:lead v-else>Start by searching for stock price history.</template>
-          <!-- <b-btn variant="primary" href="/search">Search</b-btn> -->
-          <!-- <hr class="my-4" /> -->
+          <template v-slot:lead v-else>{{$t('home.startBySearching')}}</template>
         </b-jumbotron>
       </b-col>
 
       <b-col col md="6" cols="12">
         <recently-viewed />
-        <b-button block class="mt-4" variant="primary" href="/search">Go To Search</b-button>
+        <b-button
+          block
+          class="mt-4"
+          variant="primary"
+          :href="`/${$i18n.locale}/search`"
+        >{{$t('search.startSearch')}}</b-button>
       </b-col>
     </b-row>
   </div>

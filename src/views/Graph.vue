@@ -1,12 +1,12 @@
 <template>
   <div>
     <h1>
-      Stock History Graph for
+      {{$t('graph.stockHistoryGraph')}} {{$t('for')}}
       <strong>{{symbol}}</strong>
     </h1>
     <p>
-      Currently viewing
-      <strong>{{preference}}</strong>
+      {{$t('graph.currentlyViewing')}}
+      <strong>{{$t(`graph.preferences.${preference}`)}}</strong>
     </p>
 
     <div class="d-flex flex-row justify-content-center">
@@ -14,7 +14,7 @@
     </div>
 
     <div class="my-4">
-      <area-chart xtitle="Time" ytitle="Value" :data="mapChartData(preference)"></area-chart>
+      <area-chart :xtitle="$t('time')" :ytitle="$t('value')" :data="mapChartData(preference)"></area-chart>
     </div>
   </div>
 </template>

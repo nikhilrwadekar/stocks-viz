@@ -1,21 +1,16 @@
 <template>
   <div>
     <h1>
-      Search for
-      <strong>company</strong> symbols
+      {{$t('search.searchFor')}}
+      <strong>{{$t('company')}}</strong>
+      {{$t('symbols')}}
     </h1>
     <b-form-input
       size="lg"
       v-model="symbol"
-      placeholder="Start typing for suggestions..."
+      :placeholder="$t('search.startTypingSuggestion')"
       @input="debouncedMethod"
     ></b-form-input>
-    <!-- @change="GET_SEARCH_SUGGESTIONS(symbol.toUpperCase())" -->
-
-    <!-- <recently-viewed /> -->
-
-    <!-- <h2 v-if="currentSearch" class="mt-2">Search Results for your latest search: {{ currentSearch }}</h2>
-    <h2 v-else>Start searching for stock prices above</h2>-->
 
     <b-list-group>
       <b-list-group-item

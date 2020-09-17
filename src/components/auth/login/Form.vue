@@ -29,17 +29,17 @@
     </div>
 
     <b-form @submit.stop.prevent>
-      <label for="text-username">Username</label>
+      <label for="text-username">{{$t('login.username')}}</label>
       <b-input
         v-model="username"
         id="text-username"
         aria-describedby="username-help-block"
         :value="username"
       ></b-input>
-      <b-form-invalid-feedback :state="validation">Your user ID must be 5-12 characters long.</b-form-invalid-feedback>
-      <b-form-valid-feedback :state="validation">Looks Good.</b-form-valid-feedback>
+      <b-form-invalid-feedback :state="validation">{{$t('login.validation.bad')}}</b-form-invalid-feedback>
+      <b-form-valid-feedback :state="validation">{{$t('login.validation.good')}}</b-form-valid-feedback>
 
-      <label for="text-password">Password</label>
+      <label for="text-password">{{$t('login.password')}}</label>
       <b-input
         v-model="password"
         type="password"
@@ -47,7 +47,12 @@
         aria-describedby="password-help-block"
       ></b-input>
 
-      <b-button class="mt-2 mr-sm-2 mt-sm-0" block variant="primary" @click="login">Login</b-button>
+      <b-button
+        class="mt-2 mr-sm-2 mt-sm-0"
+        block
+        variant="primary"
+        @click="login"
+      >{{$t('login.login')}}</b-button>
     </b-form>
   </div>
 </template>

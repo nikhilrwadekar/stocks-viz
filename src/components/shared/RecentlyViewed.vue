@@ -1,8 +1,8 @@
 <template>
   <div id="recently-viewed">
-    <h3 v-if="userHasHistory">You recently viewed</h3>
+    <h3 v-if="userHasHistory">{{$t('home.youRecentlyViewed')}}</h3>
     <div v-else>
-      Your recent search history will appear here.
+      {{$t('home.yourRecentSearchAppearance')}}
       <hr class="my-4" />
     </div>
     <b-list-group>

@@ -11,8 +11,18 @@ import { Chart } from 'chart.js'
 import i18n from './i18n'
 
 Vue.use(Chartkick.use(Chart));
-
 Vue.config.productionTip = false
+
+router.beforeEach((to, from, next) => {
+  let lang = to.params.lang;
+  if(!lang) {
+    lang = 'en' // or the fallback from .env
+  }
+
+  // Set the language with i18n
+  i18n.locale = lang;
+  next()
+})
 
 new Vue({
   router,

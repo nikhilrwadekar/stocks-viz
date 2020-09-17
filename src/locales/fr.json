@@ -1,0 +1,52 @@
+{
+	"app": {
+		"title": "Visualiseur de stock"
+	},
+	"greeting": "Bonjour",
+	"nav": {
+		"account": "Compte",
+		"login": "S'identifier",
+		"logOut": "Se déconnecter"
+	},
+	"home": {
+		"loginRequest": "Veuillez vous connecter pour commencer à consulter l'historique des cours des actions",
+		"yourRecentSearchAppearance": "Votre historique de recherche récent apparaîtra ici",
+		"youRecentlyViewed": "Vous avez récemment visionné",
+		"jumpBackIn": "Revenez tout de suite",
+		"startBySearching": "Commencez par rechercher l'historique des cours des actions"
+	},
+	"login": {
+		"username": "Nom d'utilisateur",
+		"password": "Mot de passe",
+		"login": "S'identifier",
+		"validation": {
+			"good": "Cela semble bon",
+			"bad": "Votre nom d'utilisateur doit comporter entre 5 et 12 caractères"
+		}
+	},
+	"search": {
+		"startSearch": "Lancer la recherche",
+		"searchFor": "Rechercher",
+		"startTypingSuggestion": "Commencez à saisir des suggestions"
+	},
+	"graph": {
+		"stockHistoryGraph": "Graphique de l'historique des stocks",
+		"currentlyViewing": "Affichage en cours",
+		"preferences": {
+			"open": "Ouvert",
+			"high": "Haut",
+			"low": "Faible",
+			"close": "Fermer",
+			"volume": "Volume"
+		}
+	},
+	"error": {
+		"notFound": "Pas trouvé",
+		"nothingHere": "Il n'y a rien ici"
+	},
+	"for": "pour",
+	"company": "Compagnie",
+	"symbols": "Symboles",
+	"value": "Valeur",
+	"time": "Temps"
+}

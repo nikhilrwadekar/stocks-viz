@@ -1,3 +1,52 @@
 {
-  "message": "hello i18n !!"
+  "app": {
+    "title": "Stock Visualizer"
+  },
+  "greeting": "Hello",
+  "nav": {
+    "account": "Account",
+    "login": "Log In",
+    "logOut": "Log Out"
+  },
+  "home": {
+    "loginRequest": "Please login to start viewing stock price history",
+    "yourRecentSearchAppearance": "Your recent search history will appear here.",
+    "youRecentlyViewed": "You recently viewed",
+    "jumpBackIn": "Jump right back in",
+    "startBySearching": "Start by searching for stock price history"
+  },
+  "login": {
+    "username": "Username",
+    "password": "Password",
+    "login": "Log In",
+    "validation": {
+      "good": "Looks good",
+      "bad": "Your username must be 5-12 characters long"
+    }
+  },
+  "search": {
+    "startSearch": "Start Search",
+    "searchFor": "Search for",
+    "startTypingSuggestion": "Start typing for suggestions"
+  },
+  "graph": {
+    "stockHistoryGraph": "Stock History Graph",
+    "currentlyViewing": "Currently viewing",
+    "preferences": {
+      "open": "Open",
+      "high": "High",
+      "low": "Low",
+      "close": "Close",
+      "volume": "Volume"
+    }
+  },
+  "error": {
+    "notFound": "Not Found",
+    "nothingHere": "There's nothing here"
+  },
+  "for": "for",
+  "company": "Company",
+  "symbols": "Symbols",
+  "value": "Value",
+  "time": "Time"
 }
