@@ -43,7 +43,7 @@ export default Vue.extend({
       .then(() => {
         this.loading = false;
       })
-      .catch((err) => {
+      .catch(() => {
         this.loading = false;
         this.$router.push(`/${this.$i18n.locale}/search`);
       });

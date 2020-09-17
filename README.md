@@ -1,34 +1,30 @@
-# mcap-ts
+# Stock Visualizer App
 
-## Project setup
-```
-yarn install
-```
+## Stack
+- Vue
+- Vue Router
+- Vuex
+- Bootstrap
+- Chart.js
+- Axios
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Building & Serving the App locally
 
-### Compiles and minifies for production
+### Setup .env setup
 ```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Run your end-to-end tests
-```
-yarn test:e2e
+VUE_APP_API_URL=https://www.alphavantage.co/query
+VUE_APP_API_KEY=APIKeyHere
+VUE_APP_TITLE=AppTitleHere
+VUE_APP_I18N_LOCALE=en
+VUE_APP_I18N_FALLBACK_LOCALE=en
 ```
 
-### Lints and fixes files
+### Project setup
 ```
-yarn lint
+yarn
+yarn build 
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Serve Locally with
+```
+serve -s dist
+```
