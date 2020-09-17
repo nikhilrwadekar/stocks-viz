@@ -22,7 +22,9 @@
     "validation": {
       "good": "Looks good",
       "bad": "Your username must be 5-12 characters long"
-    }
+    },
+    "error": "Sorry, Invalid Credentials",
+    "success": "You have successfully logged in"
   },
   "search": {
     "startSearch": "Start Search",

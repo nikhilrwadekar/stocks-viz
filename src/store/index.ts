@@ -112,10 +112,10 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         if (username === credentials.username && password === credentials.password) {
           context.commit('SET_AUTH')
-          resolve('Welcome!')
+          resolve()
         }
 
-        reject('Sorry, invalid credentials!')
+        reject()
       })
 
 

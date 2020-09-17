@@ -2,7 +2,7 @@
   <div>
     <!-- Error -->
     <div v-if="error" class="alert alert-danger alert-dismissible fade show" role="alert">
-      <strong>{{error}}</strong>
+      <strong>{{$t('login.error')}}</strong>
       <button
         @click="error = null"
         type="button"
@@ -16,7 +16,7 @@
 
     <!-- Success -->
     <div v-if="success" class="alert alert-success alert-dismissible fade show" role="alert">
-      <strong>{{success}}</strong>
+      <strong>{{$t('login.success')}}</strong>
       <button
         @click="success = null"
         type="button"
@@ -47,12 +47,7 @@
         aria-describedby="password-help-block"
       ></b-input>
 
-      <b-button
-        class="mt-2 mr-sm-2 mt-sm-0"
-        block
-        variant="primary"
-        @click="login"
-      >{{$t('login.login')}}</b-button>
+      <b-button class="mt-2" block variant="primary" @click="login">{{$t('login.login')}}</b-button>
     </b-form>
   </div>
 </template>
@@ -66,8 +61,8 @@ export default Vue.extend({
     return {
       username: "mcapuser",
       password: "password",
-      success: null,
-      error: null,
+      success: false,
+      error: false,
     };
   },
   methods: {
@@ -77,11 +72,11 @@ export default Vue.extend({
       const password = this.password;
       this.LOGIN({ username, password })
         .then((message) => {
-          this.success = message;
+          this.success = true;
           this.$router.push({ name: "Search" });
         })
         .catch((err) => {
-          this.error = err;
+          this.error = true;
         });
     },
   },
