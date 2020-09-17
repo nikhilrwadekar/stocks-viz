@@ -26,9 +26,10 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapActions, mapGetters, mapMutations } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 import LocaleSwitcher from "@/components/shared/LocalSwitcher.vue";
+import { LocaleMessages } from "vue-i18n";
 
 export default Vue.extend({
   name: "Navbar",
@@ -37,17 +38,16 @@ export default Vue.extend({
   },
   methods: {
     ...mapActions(["LOGOUT"]),
-    ...mapMutations(["SET_CURRENT_LANGUAGE"]),
-    logout() {
+    logout(): void {
       this.LOGOUT().then(() => {
         this.$router.go(0);
       });
     },
   },
   computed: {
-    ...mapGetters(["currentLanguage", "authenticated", "username"]),
-    appName() {
-      return process.env.VUE_APP_TITLE || this.$t("app.title");
+    ...mapGetters(["authenticated"]),
+    appName(): any {
+      return this.$t("app.title") || process.env.VUE_APP_TITLE;
     },
   },
 });
