@@ -22,13 +22,9 @@
 
       <b-list-group-item
         v-else
+        :variant="index % 2 === 0 ? 'secondary' : null"
         class="d-flex justify-content-between align-items-center"
-        @click="$router.push({
-					name: 'Graph',
-					params: {
-						symbol: search_result['1. symbol']
-					}
-				})"
+        :href="`/${$i18n.locale}/graph/${search_result['1. symbol']}`"
         v-for="(search_result, index) in currentSearchResults"
         :key="index"
       >
