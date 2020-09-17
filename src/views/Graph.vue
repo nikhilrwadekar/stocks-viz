@@ -5,7 +5,7 @@
       <strong>{{symbol}}</strong>
     </h1>
     <p>
-      {{$t('graph.currentlyViewing')}}
+      {{$t('graph.currentlyViewing')}}:
       <strong>{{$t(`graph.preferences.${preference}`)}}</strong>
     </p>
 
@@ -14,7 +14,12 @@
     </div>
 
     <div class="my-4">
-      <area-chart :xtitle="$t('time')" :ytitle="$t('value')" :data="mapChartData(preference)"></area-chart>
+      <area-chart
+        :xtitle="$t('time')"
+        :ytitle="$t('value')"
+        :data="mapChartData(preference)"
+        :colors="['rgba(29,38,117,0.75)']"
+      ></area-chart>
     </div>
   </div>
 </template>
@@ -33,7 +38,9 @@ export default Vue.extend({
   name: "Graph",
   created() {
     const symbol = this.symbol;
-    this.GET_STOCK_HISTORY(symbol);
+    this.GET_STOCK_HISTORY(symbol).catch((err) => {
+      this.$router.push({ name: "search" });
+    });
   },
   components: {
     Preferences,
