@@ -3,12 +3,14 @@
 View the [Live Demo](http://mcap.nikhilwadekar.com.s3-website.ca-central-1.amazonaws.com/)
 
 ## Stack
-- Vue
+- Vue w/ TypeScript
 - Vue Router
 - Vuex
+- Vue i18n
 - Bootstrap
 - Chart.js
 - Axios
+- Webpack
 
 ## Setting up locally
 
