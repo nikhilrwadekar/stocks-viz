@@ -53,11 +53,11 @@ export default Vue.extend({
       const username = this.username;
       const password = this.password;
       this.LOGIN({ username, password })
-        .then((message) => {
+        .then(() => {
           this.success = true;
           this.$router.push({ name: "Search" });
         })
-        .catch((err) => {
+        .catch(() => {
           this.error = true;
         });
     },

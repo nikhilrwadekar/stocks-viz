@@ -37,14 +37,11 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { debounce } from "lodash"; // Doesn't find the Type Definitions even after installing @types/lodash
+import { debounce } from "lodash";
 import { mapActions, mapGetters } from "vuex";
 
 export default Vue.extend({
   name: "Search",
-  components: {
-    // RecentlyViewed,
-  },
   mounted() {
     const keyword = this.$route.query.keyword;
 

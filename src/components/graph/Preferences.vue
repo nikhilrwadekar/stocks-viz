@@ -24,7 +24,7 @@ export default Vue.extend({
   },
   methods: {
     updatePreference(e: any) {
-      const preference = e.target.value;
+      const preference: string = e.target.value;
       this.currentPreference = preference;
       this.$emit("preference", preference);
     },
