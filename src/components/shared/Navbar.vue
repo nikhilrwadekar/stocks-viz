@@ -44,7 +44,7 @@ export default Vue.extend({
   computed: {
     ...mapGetters(["authenticated"]),
     appName(): any {
-      return this.$t("app.title") || process.env.VUE_APP_TITLE;
+      return process.env.VUE_APP_TITLE || this.$t("app.title");
     },
   },
 });
