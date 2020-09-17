@@ -75,19 +75,16 @@ export default new Vuex.Store({
 
       // Todo DATE check!
       // Todo Closing check!
-
-      // Todo Throttle Calls to the API
       const exists = context.getters.history[symbol]
 
 
-      if (!exists) {
+      if (!exists && symbol) {
         APIService.get('', { params: { function: 'TIME_SERIES_DAILY', symbol } }).then((res: AxiosResponse) => {
           const { data } = res;
           const metadata = data['Meta Data'];
           const timeseries = data['Time Series (Daily)'];
 
           context.commit('SET_STOCK_HISTORY', { metadata, timeseries })
-          // context.commit('SET_CURRENT_HISTORY',)
         })
       }
     },
@@ -96,7 +93,7 @@ export default new Vuex.Store({
       context.commit('SET_CURRENT_SEARCH', keywords);
       const exists = context.getters.search[keywords];
 
-      if (!exists) {
+      if (!exists && keywords) {
         APIService.get('', { params: { function: 'SYMBOL_SEARCH', keywords } }).then((res: AxiosResponse) => {
           const { bestMatches } = res.data;
 

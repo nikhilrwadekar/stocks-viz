@@ -1,14 +1,18 @@
 <template>
   <div v-if="!authenticated">
-    <b-jumbotron bg-variant="transparent">
-      <template v-slot:header>{{$t('greeting')}}! 👋</template>
+    <b-row align-v="center" class="justify-content-md-center">
+      <b-col col md="6" cols="12">
+        <b-jumbotron bg-variant="transparent">
+          <template v-slot:header>{{$t('greeting')}}! 👋</template>
 
-      <template v-slot:lead>{{$t('home.loginRequest')}}</template>
+          <template v-slot:lead>{{$t('home.loginRequest')}}</template>
 
-      <hr class="my-4" />
+          <hr class="my-4" />
 
-      <b-button block variant="primary" :href="`/${$i18n.locale}/login`">{{$t('login.login')}}</b-button>
-    </b-jumbotron>
+          <b-button block variant="primary" :href="`/${$i18n.locale}/login`">{{$t('login.login')}}</b-button>
+        </b-jumbotron>
+      </b-col>
+    </b-row>
   </div>
 
   <div v-else>

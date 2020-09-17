@@ -9,11 +9,19 @@
       size="lg"
       v-model="symbol"
       :placeholder="$t('search.startTypingSuggestion')"
-      @input="debouncedMethod"
+      @input="debounceSuggestionInput;loading = true;"
     ></b-form-input>
 
     <b-list-group>
+      <b-skeleton-table
+        v-if="loading"
+        :rows="5"
+        :columns="1"
+        :table-props="{ bordered: true, striped: true }"
+      ></b-skeleton-table>
+
       <b-list-group-item
+        v-else
         class="d-flex justify-content-between align-items-center"
         @click="$router.push({
 					name: 'Graph',
@@ -33,9 +41,8 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { debounce } from "lodash";
 import { mapActions, mapGetters } from "vuex";
-
-import _ from "lodash";
 
 export default Vue.extend({
   name: "Search",
@@ -50,18 +57,21 @@ export default Vue.extend({
   data() {
     return {
       symbol: this.$route.query.keyword || "",
+      loading: false,
     };
   },
   watch: {
-    symbol: "debouncedSuggestions",
+    symbol: "debounceSuggestionInput",
   },
   computed: {
     ...mapGetters(["currentSearchResults", "currentSearch", "search"]),
   },
   methods: {
     ...mapActions(["GET_SEARCH_SUGGESTIONS"]),
-    debouncedMethod: _.debounce(function (value: string) {
-      this.GET_SEARCH_SUGGESTIONS(value);
+    debounceSuggestionInput: debounce(function (this: any, value: string) {
+      this.GET_SEARCH_SUGGESTIONS(value).then(() => {
+        this.loading = false;
+      });
     }, 500),
   },
 });

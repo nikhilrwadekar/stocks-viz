@@ -1,6 +1,11 @@
 <template>
   <div>
-    <Form />
+    <b-row class="justify-content-center">
+      <b-col cols="12" md="6">
+        <h1>{{$t('login.login')}}</h1>
+        <Form />
+      </b-col>
+    </b-row>
   </div>
 </template>
 

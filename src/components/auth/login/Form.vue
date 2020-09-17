@@ -28,7 +28,7 @@
       </button>
     </div>
 
-    <b-form @submit.stop.prevent>
+    <b-form @submit.stop.prevent @keyup.enter="login">
       <label for="text-username">{{$t('login.username')}}</label>
       <b-input
         v-model="username"

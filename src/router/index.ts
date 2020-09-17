@@ -60,16 +60,16 @@ router.beforeEach((to, from, next) => {
 
   // NO Auth Guard
   if (to.matched.some(record => record.meta.requiresLogin) && store.state.authenticated === false) {
+    console.log('you have to lgin')
     next(`/${i18n.locale}/login`)
   }
 
 
   // Hide Login if Signed In
-  else if (to.matched.some(record => record.meta.hideFromAuth) && store.state.authenticated === true) {
-    next(false)
+  if (to.matched.some(record => record.meta.hideFromAuth) && store.state.authenticated === true) {
+    next('/')
   }
-
-
+  
   next()
 })
 

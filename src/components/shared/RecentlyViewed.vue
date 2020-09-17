@@ -1,18 +1,15 @@
 <template>
   <div id="recently-viewed">
-    <h3 v-if="userHasHistory">{{$t('home.youRecentlyViewed')}}</h3>
-    <div v-else>
-      {{$t('home.yourRecentSearchAppearance')}}
-      <hr class="my-4" />
-    </div>
-    <b-list-group>
-      <b-list-group-item
-        variant="secondary"
+    <p v-if="userHasHistory">{{$t('home.youRecentlyViewed')}}:</p>
+    <div v-else>{{$t('home.yourRecentSearchAppearance')}}</div>
+    <b-button-group>
+      <b-button
+        variant="outline-primary"
         @click="$router.push({name: 'Graph', params: { symbol }})"
         v-for="(symbol, index) in Object.keys(history)"
         :key="index"
-      >{{ symbol }}</b-list-group-item>
-    </b-list-group>
+      >{{ symbol }}</b-button>
+    </b-button-group>
   </div>
 </template>
 

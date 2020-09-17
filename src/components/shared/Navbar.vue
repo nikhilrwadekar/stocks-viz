@@ -1,26 +1,23 @@
 <template>
-  <b-navbar toggleable="lg" type="light">
-    <b-navbar-brand :href="`/${$i18n.locale}/`">
-      <!-- <b-img src="./../../assets/logo_mcap.gif" fluid alt="MCAP Logo"></b-img> -->
-      <b-navbar-brand :href="`/${$i18n.locale}/`">{{appName}}</b-navbar-brand>
-    </b-navbar-brand>
+  <b-navbar
+    fixed
+    toggleable="md"
+    class="justify-content-space-between mb-5"
+    type="dark"
+    variant="primary"
+  >
+    <b-navbar-brand :href="`/${$i18n.locale}/`">{{appName}}</b-navbar-brand>
 
-    <b-navbar-toggle v-if="authenticated" target="nav-collapse"></b-navbar-toggle>
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-    <b-collapse v-if="authenticated" id="nav-collapse" is-nav>
+    <b-collapse id="nav-collapse" is-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <!-- Local Switcher -->
         <locale-switcher />
-
-        <b-nav-item-dropdown :text="$t('nav.account')" right>
-          <b-dropdown-item @click="logout">{{$t('nav.logOut')}}</b-dropdown-item>
-        </b-nav-item-dropdown>
+        <b-nav-item v-if="authenticated" @click="logout">{{$t('nav.logOut')}}</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
-
-    <!-- Locale Switcher -->
-    <locale-switcher v-else />
   </b-navbar>
 </template>
 

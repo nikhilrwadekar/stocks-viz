@@ -1,7 +1,7 @@
 <template>
-  <b-dropdown :text="$i18n.locale" right>
+  <b-nav-item-dropdown :text="$i18n.locale" right>
     <template v-slot:button-content>
-      <b-img width="50" :src="`/img/flags/flag_${locale}.svg`" rounded :alt="`Flag for ${locale}`"></b-img>
+      <b-img width="25" :src="`/img/flags/flag_${locale}.svg`" rounded :alt="`Flag for ${locale}`"></b-img>
       {{locale.toUpperCase()}}
     </template>
     <b-dropdown-item
@@ -10,10 +10,10 @@
       :value="lang"
       :key="index"
     >
-      <b-img width="50" :src="`/img/flags/flag_${lang}.svg`" rounded :alt="`Flag for ${lang}`"></b-img>
+      <b-img width="25" :src="`/img/flags/flag_${lang}.svg`" rounded :alt="`Flag for ${lang}`"></b-img>
       {{lang.toUpperCase()}}
     </b-dropdown-item>
-  </b-dropdown>
+  </b-nav-item-dropdown>
 </template>
 
 <script lang="ts">
