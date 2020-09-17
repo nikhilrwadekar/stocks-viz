@@ -1,32 +1,14 @@
 <template>
   <div>
     <!-- Error -->
-    <div v-if="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <b-alert @dismissed="error = null" :show="error" dismissible variant="danger">
       <strong>{{$t('login.error')}}</strong>
-      <button
-        @click="error = null"
-        type="button"
-        class="close"
-        data-dismiss="alert"
-        aria-label="Close"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+    </b-alert>
 
     <!-- Success -->
-    <div v-if="success" class="alert alert-success alert-dismissible fade show" role="alert">
+    <b-alert @dismissed="success = null" :show="success" dismissible variant="success">
       <strong>{{$t('login.success')}}</strong>
-      <button
-        @click="success = null"
-        type="button"
-        class="close"
-        data-dismiss="alert"
-        aria-label="Close"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+    </b-alert>
 
     <b-form @submit.stop.prevent @keyup.enter="login">
       <label for="text-username">{{$t('login.username')}}</label>
@@ -87,6 +69,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style lang="scss" scoped>
-</style>

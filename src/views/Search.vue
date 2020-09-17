@@ -37,7 +37,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { debounce } from "lodash";
+import { debounce } from "lodash"; // Doesn't find the Type Definitions even after installing @types/lodash
 import { mapActions, mapGetters } from "vuex";
 
 export default Vue.extend({
@@ -72,6 +72,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style lang="scss" scoped>
-</style>

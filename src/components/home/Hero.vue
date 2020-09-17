@@ -4,10 +4,7 @@
       <b-col col md="6" cols="12">
         <b-jumbotron bg-variant="transparent">
           <template v-slot:header>{{$t('greeting')}}! 👋</template>
-
           <template v-slot:lead>{{$t('home.loginRequest')}}</template>
-
-          <hr class="my-4" />
 
           <b-button block variant="primary" :href="`/${$i18n.locale}/login`">{{$t('login.login')}}</b-button>
         </b-jumbotron>
@@ -20,7 +17,6 @@
       <b-col col md="6" cols="12">
         <b-jumbotron bg-variant="transparent">
           <template v-slot:header>{{$t('greeting')}}, {{username}}! 👋</template>
-
           <template v-slot:lead v-if="userHasHistory">
             <div>{{$t('home.jumpBackIn')}}!</div>
           </template>

@@ -33,8 +33,6 @@ const results: Module<any, any> =  {
 		actions: {
 			// Search & Fetch
 			GET_STOCK_HISTORY(context, symbol: string) {
-				// Todo DATE check!
-				// Todo Closing check!
 				const exists = context.getters.history[symbol]
 
 				return new Promise((resolve, reject) => {

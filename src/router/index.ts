@@ -58,7 +58,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
 
-  // NO Auth Guard
+  // Auth Guard
   if (to.matched.some(record => record.meta.requiresLogin) && store.getters.authenticated === false) {
     next(`/${i18n.locale}/login`)
   }

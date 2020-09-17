@@ -1,8 +1,7 @@
 <template>
   <b-nav-item-dropdown :text="$i18n.locale" right>
     <template v-slot:button-content>
-      <b-img width="25" :src="`/img/flags/flag_${locale}.svg`" rounded :alt="`Flag for ${locale}`"></b-img>
-      {{locale.toUpperCase()}}
+      <locale-flag :locale="locale" />
     </template>
     <b-dropdown-item
       @click="updateLocale(lang)"
@@ -10,15 +9,19 @@
       :value="lang"
       :key="index"
     >
-      <b-img width="25" :src="`/img/flags/flag_${lang}.svg`" rounded :alt="`Flag for ${lang}`"></b-img>
-      {{lang.toUpperCase()}}
+      <locale-flag :locale="lang" />
     </b-dropdown-item>
   </b-nav-item-dropdown>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import LocaleFlag from "./LocaleFlag.vue";
+
 export default Vue.extend({
+  components: {
+    LocaleFlag,
+  },
   methods: {
     updateLocale(locale: string) {
       this.$i18n.locale = locale;

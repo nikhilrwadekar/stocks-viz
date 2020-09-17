@@ -53,7 +53,6 @@ export default Vue.extend({
   },
   data() {
     return {
-      // {'2017-01-01': 11, '2017-01-02': 6}
       loading: false,
       preference: "open",
     };
@@ -108,6 +107,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style lang="scss" scoped>
-</style>

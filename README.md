@@ -10,7 +10,7 @@
 
 ## Building & Serving the App locally
 
-### Setup .env setup
+### Setup .env
 ```
 VUE_APP_API_URL=https://www.alphavantage.co/query
 VUE_APP_API_KEY=APIKeyHere

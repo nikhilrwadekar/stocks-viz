@@ -8,8 +8,6 @@ const initialState = () => {
 	}
 }
 
-
-
 const search: Module<any, any> =  {
 	state: initialState(),
 	mutations: {
@@ -21,7 +19,6 @@ const search: Module<any, any> =  {
       state.currentSearch = keywords
     },
 	},
-	// actions: { ... },
 	getters: {
 		symbol: (state) => {
       return state.symbol

@@ -5,7 +5,6 @@ const initialState = () => ({
 		password: 'password',
 		authenticated: false
 })
- 
 
 const auth: Module<any, any> = {
 	state: initialState(),
@@ -27,14 +26,10 @@ const auth: Module<any, any> = {
           context.commit('SET_AUTH')
           resolve()
         }
-
         reject()
       })
-
-
     },
     async LOGOUT(context) {
-      // context.commit('RESET_STORE', initial)
       await window.localStorage.removeItem('vuex');
     }
 	},
