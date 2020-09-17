@@ -43,7 +43,7 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters(["authenticated"]),
-    appName(): any {
+    appName(): LocaleMessages | string {
       return process.env.VUE_APP_TITLE || this.$t("app.title");
     },
   },

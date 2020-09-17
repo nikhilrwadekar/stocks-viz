@@ -55,16 +55,18 @@ export default Vue.extend({
       this.LOGIN({ username, password })
         .then(() => {
           this.success = true;
+          this.error = false;
           this.$router.push({ name: "Search" });
         })
         .catch(() => {
+          this.success = false;
           this.error = true;
         });
     },
   },
   computed: {
     validation(): boolean {
-      return this.username.length > 4 && this.password.length < 13;
+      return this.username.length > 4 && this.username.length < 13;
     },
   },
 });
