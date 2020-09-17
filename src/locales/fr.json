@@ -29,7 +29,8 @@
 	"search": {
 		"startSearch": "Lancer la recherche",
 		"searchFor": "Rechercher",
-		"startTypingSuggestion": "Commencez à saisir des suggestions"
+		"startTypingSuggestion": "Commencez à saisir des suggestions",
+		"startTypingAgainSuggestion": "Rechercher d'autres entreprises"
 	},
 	"graph": {
 		"stockHistoryGraph": "Graphique de l'historique des stocks",

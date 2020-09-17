@@ -8,7 +8,7 @@
     <b-form-input
       size="lg"
       v-model="symbol"
-      :placeholder="$t('search.startTypingSuggestion')"
+      :placeholder="currentSearchResults && currentSearchResults.length ? $t('search.startTypingAgainSuggestion') : $t('search.startTypingSuggestion')"
       @input="debounceSuggestionInput;loading = true;"
     ></b-form-input>
 

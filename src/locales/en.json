@@ -29,7 +29,8 @@
   "search": {
     "startSearch": "Start Search",
     "searchFor": "Search for",
-    "startTypingSuggestion": "Start typing for suggestions"
+    "startTypingSuggestion": "Start typing for suggestions",
+    "startTypingAgainSuggestion": "Search for other companies"
   },
   "graph": {
     "stockHistoryGraph": "Stock History Graph",
